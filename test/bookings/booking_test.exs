@@ -7,10 +7,10 @@ defmodule Flightex.Bookings.BookingTest do
     test "when all params are valid, returns a booking" do
       {:ok, response} =
         Booking.build(
+          "12345678900",
           ~N[2001-05-07 01:46:20],
           "Brasilia",
-          "ilha das bananas",
-          "12345678900"
+          "ilha das bananas"
         )
 
       expected_response = %Flightex.Bookings.Booking{
@@ -18,7 +18,7 @@ defmodule Flightex.Bookings.BookingTest do
         id: response.id,
         local_destination: "ilha das bananas",
         local_origin: "Brasilia",
-        user_id: "12345678900"
+        user_cpf: "12345678900"
       }
 
       assert response == expected_response

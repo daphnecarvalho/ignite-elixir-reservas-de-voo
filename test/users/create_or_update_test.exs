@@ -39,7 +39,7 @@ defmodule Flightex.Users.CreateOrUpdateTest do
         cpf: 12_345_678_900
       }
 
-      expected_response = {:error, "Cpf must be a String"}
+      expected_response = {:error, "CPF must be a string!"}
 
       response = CreateOrUpdate.call(params)
 

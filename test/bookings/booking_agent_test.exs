@@ -44,19 +44,19 @@ defmodule Flightex.Bookings.AgentTest do
            id: id,
            local_destination: "Bananeiras",
            local_origin: "Brasilia",
-           user_id: "12345678900"
+           user_cpf: "12345678900"
          }}
 
       assert response == expected_response
     end
 
-    test "when the user wasn't found, returns an error", %{id: id} do
+    test "when the booking isn't found, returns an error", %{id: id} do
       booking = build(:booking, id: id)
       {:ok, _uuid} = BookingsAgent.save(booking)
 
       response = BookingsAgent.get("banana")
 
-      expected_response = {:error, "Booking not found"}
+      expected_response = {:error, "Booking not found!"}
 
       assert response == expected_response
     end

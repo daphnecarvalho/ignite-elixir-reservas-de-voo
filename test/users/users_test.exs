@@ -14,12 +14,12 @@ defmodule Flightex.Users.UserTest do
           "12345678900"
         )
 
-      expected_response = build(:users, id: response.id)
+      expected_response = build(:user, id: response.id)
 
       assert response == expected_response
     end
 
-    test "when cpf is a integer" do
+    test "when cpf is a integer, returns an error" do
       response =
         User.build(
           "Jp",
@@ -27,7 +27,7 @@ defmodule Flightex.Users.UserTest do
           112_250_055
         )
 
-      expected_response = {:error, "Cpf must be a String"}
+      expected_response = {:error, "CPF must be a string!"}
 
       assert response == expected_response
     end

@@ -1,33 +1,44 @@
 # Este teste é opcional, mas vale a pena tentar e se desafiar 😉
 
-# defmodule Flightex.Bookings.ReportTest do
-#   use ExUnit.Case, async: true
+defmodule Flightex.Bookings.ReportTest do
+  use ExUnit.Case
 
-#   alias Flightex.Bookings.Report
+  alias Flightex.Bookings.Agent, as: BookingAgent
+  alias Flightex.Bookings.Report
+  alias Flightex.Users.Agent, as: UserAgent
+  alias Flightex.Users.CreateOrUpdate, as: CreateOrUpdateUser
 
-#   describe "generate/1" do
-#     setup do
-#       Flightex.start_agents()
+  describe "generate/1" do
+    setup do
+      BookingAgent.start_link(%{})
+      UserAgent.start_link(%{})
 
-#       :ok
-#     end
+      :ok
+    end
 
-#     test "when called, return the content" do
-#       params = %{
-#         complete_date: ~N[2001-05-07 12:00:00],
-#         local_origin: "Brasilia",
-#         local_destination: "Bananeiras",
-#         user_id: "12345678900",
-#         id: UUID.uuid4()
-#       }
+    test "when called, return the content" do
+      params = %{
+        name: "Jp",
+        email: "jp@banana.com",
+        cpf: "12345678900"
+      }
 
-#       content = "12345678900,Brasilia,Bananeiras,2001-05-07 12:00:00"
+      CreateOrUpdateUser.call(params)
 
-#       Flightex.create_or_update_booking(params)
-#       Report.generate("report-test.csv")
-#       {:ok, file} = File.read("report-test.csv")
+      params = %{
+        complete_date: ~N[2001-05-07 12:00:00],
+        local_origin: "Brasilia",
+        local_destination: "Bananeiras",
+        user_cpf: "12345678900"
+      }
 
-#       assert file =~ content
-#     end
-#   end
-# end
+      Flightex.create_or_update_booking(params)
+      Report.create("report_test.csv")
+      response = File.read("report_test.csv")
+
+      expected_response = {:ok, "12345678900,Brasilia,Bananeiras,2001-05-07 12:00:00\n"}
+
+      assert response == expected_response
+    end
+  end
+end

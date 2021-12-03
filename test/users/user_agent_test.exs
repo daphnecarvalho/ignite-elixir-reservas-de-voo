@@ -15,13 +15,12 @@ defmodule Flightex.Users.AgentTest do
       {:ok, id: id, cpf: cpf}
     end
 
-    test "when the user is saves, returns an tuple", %{id: id, cpf: cpf} do
-      :users
+    test "when the user is saved, returns an tuple", %{id: id, cpf: cpf} do
+      :user
       |> build(id: id, cpf: cpf)
       |> UserAgent.save()
 
       response = UserAgent.get(cpf)
-
 
       expected_response =
         {:ok, %Flightex.Users.User{cpf: cpf, email: "jp@banana.com", id: id, name: "Jp"}}
@@ -41,7 +40,7 @@ defmodule Flightex.Users.AgentTest do
     end
 
     test "when the user is found, returns the user", %{id: id, cpf: cpf} do
-      :users
+      :user
       |> build(id: id, cpf: cpf)
       |> UserAgent.save()
 
@@ -53,14 +52,14 @@ defmodule Flightex.Users.AgentTest do
       assert response == expected_response
     end
 
-    test "when the user is't founded, returns an error", %{id: id, cpf: cpf} do
-      :users
+    test "when the user isn't found, returns an error", %{id: id, cpf: cpf} do
+      :user
       |> build(id: id, cpf: cpf)
       |> UserAgent.save()
 
       response = UserAgent.get("banana")
 
-      expected_response = {:error, "User not found"}
+      expected_response = {:error, "User not found!"}
 
       assert response == expected_response
     end
