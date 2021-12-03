@@ -33,6 +33,4 @@ defmodule Flightex.Bookings.CreateOrUpdate do
     BookingAgent.save(booking)
     booking
   end
-
-  defp save_booking({:error, _reason} = error), do: error
 end
