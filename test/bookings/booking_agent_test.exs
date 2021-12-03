@@ -3,11 +3,12 @@ defmodule Flightex.Bookings.AgentTest do
 
   import Flightex.Factory
 
-  alias Flightex.Bookings.Agent, as: BookingsAgent
+  alias Flightex.Bookings.Agent, as: BookingAgent
+  alias Flightex.Bookings.Booking
 
   describe "save/1" do
     setup do
-      BookingsAgent.start_link(%{})
+      BookingAgent.start_link(%{})
 
       :ok
     end
@@ -16,7 +17,7 @@ defmodule Flightex.Bookings.AgentTest do
       response =
         :booking
         |> build()
-        |> BookingsAgent.save()
+        |> BookingAgent.save()
 
       {:ok, uuid} = response
 
@@ -26,16 +27,16 @@ defmodule Flightex.Bookings.AgentTest do
 
   describe "get/1" do
     setup do
-      BookingsAgent.start_link(%{})
+      BookingAgent.start_link(%{})
 
       {:ok, id: UUID.uuid4()}
     end
 
     test "when the user is found, return a booking", %{id: id} do
       booking = build(:booking, id: id)
-      {:ok, uuid} = BookingsAgent.save(booking)
+      {:ok, uuid} = BookingAgent.save(booking)
 
-      response = BookingsAgent.get(uuid)
+      response = BookingAgent.get(uuid)
 
       expected_response =
         {:ok,
@@ -52,11 +53,38 @@ defmodule Flightex.Bookings.AgentTest do
 
     test "when the booking isn't found, returns an error", %{id: id} do
       booking = build(:booking, id: id)
-      {:ok, _uuid} = BookingsAgent.save(booking)
+      {:ok, _uuid} = BookingAgent.save(booking)
 
-      response = BookingsAgent.get("banana")
+      response = BookingAgent.get("banana")
 
       expected_response = {:error, "Booking not found!"}
+
+      assert response == expected_response
+    end
+  end
+
+  describe "get_all/0" do
+    setup do
+      BookingAgent.start_link(%{})
+
+      {:ok, id: UUID.uuid4()}
+    end
+
+    test "returns the booking list", %{id: id} do
+      booking = build(:booking, id: id)
+      {:ok, _uuid} = BookingAgent.save(booking)
+
+      {:ok, response} = BookingAgent.get_all()
+
+      response = Map.get(response, id)
+
+      expected_response = %Booking{
+        complete_date: ~N[2001-05-07 03:05:00],
+        id: id,
+        local_destination: "Bananeiras",
+        local_origin: "Brasilia",
+        user_cpf: "12345678900"
+      }
 
       assert response == expected_response
     end

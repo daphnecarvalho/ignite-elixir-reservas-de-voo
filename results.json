@@ -4,18 +4,25 @@
   "invalid": [],
   "passed": [
     {
-      "describe": "build/4",
+      "describe": "build/3",
       "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/users/users_test.exs",
       "line": 22,
       "module": "Elixir.Flightex.Users.UserTest",
-      "test": "test build/4 when cpf is a integer, returns an error"
+      "test": "test build/3 when cpf is a integer, returns an error"
     },
     {
-      "describe": "build/4",
+      "describe": "build/3",
       "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/users/users_test.exs",
       "line": 9,
       "module": "Elixir.Flightex.Users.UserTest",
-      "test": "test build/4 when all params are valid, returns the user"
+      "test": "test build/3 when all params are valid, returns the user"
+    },
+    {
+      "describe": "build/4",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/booking_test.exs",
+      "line": 27,
+      "module": "Elixir.Flightex.Bookings.BookingTest",
+      "test": "test build/4 when an invalid parameter is passed, returns an error"
     },
     {
       "describe": "build/4",
@@ -25,53 +32,25 @@
       "test": "test build/4 when all params are valid, returns a booking"
     },
     {
+      "describe": "create_by_date_interval/3",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/report_test.exs",
+      "line": 79,
+      "module": "Elixir.Flightex.Bookings.ReportTest",
+      "test": "test create_by_date_interval/3 when a from date is greater than a to date, returns an error"
+    },
+    {
+      "describe": "create_by_date_interval/3",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/report_test.exs",
+      "line": 70,
+      "module": "Elixir.Flightex.Bookings.ReportTest",
+      "test": "test create_by_date_interval/3 when a from date and to date is informed (equal), create report with all bookings in the interval"
+    },
+    {
       "describe": "generate/1",
       "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/report_test.exs",
       "line": 19,
       "module": "Elixir.Flightex.Bookings.ReportTest",
       "test": "test generate/1 when called, return the content"
-    },
-    {
-      "describe": "call/1",
-      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/create_or_update_test.exs",
-      "line": 48,
-      "module": "Elixir.Flightex.Bookings.CreateOrUpdateTest",
-      "test": "test call/1 when there is an invalid user, returns an error"
-    },
-    {
-      "describe": "call/1",
-      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/create_or_update_test.exs",
-      "line": 25,
-      "module": "Elixir.Flightex.Bookings.CreateOrUpdateTest",
-      "test": "test call/1 when all params are valid, returns a tuple"
-    },
-    {
-      "describe": "create_or_update_user/1",
-      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
-      "line": 15,
-      "module": "Elixir.FlightexTest",
-      "test": "test create_or_update_user/1 when all params are valid, return a tuple"
-    },
-    {
-      "describe": "create_or_update_booking/1",
-      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
-      "line": 66,
-      "module": "Elixir.FlightexTest",
-      "test": "test create_or_update_booking/1 when all params are valid, returns a tuple"
-    },
-    {
-      "describe": "create_or_update_user/1",
-      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
-      "line": 36,
-      "module": "Elixir.FlightexTest",
-      "test": "test create_or_update_user/1 when CPF is an integer, returns an error"
-    },
-    {
-      "describe": "save/1",
-      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/users/user_agent_test.exs",
-      "line": 18,
-      "module": "Elixir.Flightex.Users.AgentTest",
-      "test": "test save/1 when the user is saved, returns an tuple"
     },
     {
       "describe": "get/1",
@@ -89,24 +68,129 @@
     },
     {
       "describe": "save/1",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/users/user_agent_test.exs",
+      "line": 18,
+      "module": "Elixir.Flightex.Users.AgentTest",
+      "test": "test save/1 when the user is saved, returns an tuple"
+    },
+    {
+      "describe": "call/1",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/create_or_update_test.exs",
+      "line": 46,
+      "module": "Elixir.Flightex.Bookings.CreateOrUpdateTest",
+      "test": "test call/1 when there is an invalid user, returns an error"
+    },
+    {
+      "describe": "call/1",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/create_or_update_test.exs",
+      "line": 23,
+      "module": "Elixir.Flightex.Bookings.CreateOrUpdateTest",
+      "test": "test call/1 when all params are valid, returns a tuple"
+    },
+    {
+      "describe": "save/1",
       "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/booking_agent_test.exs",
-      "line": 15,
+      "line": 16,
       "module": "Elixir.Flightex.Bookings.AgentTest",
       "test": "test save/1 when the param are valid, return a booking uuid"
     },
     {
+      "describe": "get_all/0",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/booking_agent_test.exs",
+      "line": 73,
+      "module": "Elixir.Flightex.Bookings.AgentTest",
+      "test": "test get_all/0 returns the booking list"
+    },
+    {
       "describe": "get/1",
       "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/booking_agent_test.exs",
-      "line": 53,
+      "line": 54,
       "module": "Elixir.Flightex.Bookings.AgentTest",
       "test": "test get/1 when the booking isn't found, returns an error"
     },
     {
       "describe": "get/1",
       "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/bookings/booking_agent_test.exs",
-      "line": 34,
+      "line": 35,
       "module": "Elixir.Flightex.Bookings.AgentTest",
       "test": "test get/1 when the user is found, return a booking"
+    },
+    {
+      "describe": "get_booking/1",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
+      "line": 56,
+      "module": "Elixir.FlightexTest",
+      "test": "test get_booking/1 when a UUID is informed, returns the booking information"
+    },
+    {
+      "describe": "generate_report/0",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
+      "line": 224,
+      "module": "Elixir.FlightexTest",
+      "test": "test generate_report/0 create report with all bookings"
+    },
+    {
+      "describe": "create_or_update_user/1",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
+      "line": 145,
+      "module": "Elixir.FlightexTest",
+      "test": "test create_or_update_user/1 when all params are valid, return a tuple"
+    },
+    {
+      "describe": "generate_report/3",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
+      "line": 285,
+      "module": "Elixir.FlightexTest",
+      "test": "test generate_report/3 when a filename, from date and to date is informed, create report with all bookings in the interval"
+    },
+    {
+      "describe": "get_all_users/0",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
+      "line": 95,
+      "module": "Elixir.FlightexTest",
+      "test": "test get_all_users/0 returns all users"
+    },
+    {
+      "describe": "generate_report/2",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
+      "line": 266,
+      "module": "Elixir.FlightexTest",
+      "test": "test generate_report/2 when a from date and to date is informed, create report with all bookings in the interval"
+    },
+    {
+      "describe": "generate_report/1",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
+      "line": 245,
+      "module": "Elixir.FlightexTest",
+      "test": "test generate_report/1 when a filename is informed, create report with all bookings"
+    },
+    {
+      "describe": "get_all_bookings/0",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
+      "line": 118,
+      "module": "Elixir.FlightexTest",
+      "test": "test get_all_bookings/0 returns all bookings"
+    },
+    {
+      "describe": "get_user/1",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
+      "line": 19,
+      "module": "Elixir.FlightexTest",
+      "test": "test get_user/1 when a CPF is informed, returns the user"
+    },
+    {
+      "describe": "create_or_update_booking/1",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
+      "line": 196,
+      "module": "Elixir.FlightexTest",
+      "test": "test create_or_update_booking/1 when all params are valid, returns a tuple"
+    },
+    {
+      "describe": "create_or_update_user/1",
+      "file": "/home/daphnecarvalho/ignite-trilha-elixir-2021-reservas-de-voo/test/flightext_test.exs",
+      "line": 166,
+      "module": "Elixir.FlightexTest",
+      "test": "test create_or_update_user/1 when CPF is an integer, returns an error"
     },
     {
       "describe": "call/1",

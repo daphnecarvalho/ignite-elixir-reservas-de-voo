@@ -5,7 +5,7 @@ defmodule Flightex.Users.UserTest do
 
   import Flightex.Factory
 
-  describe "build/4" do
+  describe "build/3" do
     test "when all params are valid, returns the user" do
       {:ok, response} =
         User.build(

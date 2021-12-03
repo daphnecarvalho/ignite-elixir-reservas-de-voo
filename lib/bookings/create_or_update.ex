@@ -29,7 +29,7 @@ defmodule Flightex.Bookings.CreateOrUpdate do
     |> save_booking()
   end
 
-  defp save_booking({:ok, %Booking{id: uuid} = booking}) do
+  defp save_booking({:ok, %Booking{} = booking}) do
     BookingAgent.save(booking)
     booking
   end

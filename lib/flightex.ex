@@ -17,10 +17,13 @@ defmodule Flightex do
   # Flightex.get_user("12345678900")
   # Flightex.get_booking("d57e090a-efaf-4f5b-a5bf-32f03f98030c")
   # Flightex.generate_report(~D[2001-05-01], ~D[2001-05-08])
+
+  # coveralls-ignore-start
   def start_agents do
     BookingAgent.start_link(%{})
     UserAgent.start_link(%{})
   end
+  # coveralls-ignore-stop
 
   defdelegate get_user(cpf), to: UserAgent, as: :get
 

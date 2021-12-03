@@ -3,9 +3,11 @@ defmodule Flightex.Bookings.Agent do
 
   alias Flightex.Bookings.Booking
 
+  # coveralls-ignore-start
   def start_link(_initial_state) do
     Agent.start_link(fn -> %{} end, name: __MODULE__)
   end
+  # coveralls-ignore-stop
 
   def save(%Booking{} = booking) do
     Agent.update(__MODULE__, &update_state(&1, booking))

@@ -3,13 +3,11 @@ defmodule Flightex.Bookings.CreateOrUpdateTest do
 
   alias Flightex.Bookings.Agent, as: BookingAgent
   alias Flightex.Bookings.CreateOrUpdate, as: CreateOrUpdateBooking
-  alias Flightex.Users.Agent, as: UserAgent
   alias Flightex.Users.CreateOrUpdate, as: CreateOrUpdateUser
 
   describe "call/1" do
     setup do
-      BookingAgent.start_link(%{})
-      UserAgent.start_link(%{})
+      Flightex.start_agents()
 
       params = %{
         name: "Jp",

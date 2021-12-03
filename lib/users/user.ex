@@ -13,5 +13,5 @@ defmodule Flightex.Users.User do
      }}
   end
 
-  def build(name, email, cpf), do: {:error, "CPF must be a string!"}
+  def build(_name, _email, _cpf), do: {:error, "CPF must be a string!"}
 end
