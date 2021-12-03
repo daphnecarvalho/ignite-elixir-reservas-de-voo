@@ -1,7 +1,6 @@
 defmodule FlightexTest do
   use ExUnit.Case
 
-  alias Flightex.Bookings.Agent, as: BookingAgent
   alias Flightex.Users.Agent, as: UserAgent
   alias Flightex.Users.CreateOrUpdate, as: CreateOrUpdateUser
   alias Flightex.Users.User
@@ -51,8 +50,7 @@ defmodule FlightexTest do
 
   describe "create_or_update_booking/1" do
     setup do
-      BookingAgent.start_link(%{})
-      UserAgent.start_link(%{})
+      Flightex.start_agents()
 
       params = %{
         name: "Jp",
